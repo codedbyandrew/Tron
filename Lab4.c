@@ -18,6 +18,12 @@
 //
 //*****************************************************************************
 void	PBSwInit(void);	
+void 	sysTickInit(void);
+void 	RGB_LEDInit(void);
+void	LEDBARInit(void);
+
+int 	read_PBSwitchNum(int SwitchNumber);
+void    sysTickWait1mS(int waitTime);
 
 int
 main(void)
@@ -26,7 +32,7 @@ main(void)
 /* Initialization Functions */
 	//Section to initialize switches and displays
 	    //Initialize display
-	void 	sysTickInit(void);  //used for system clock
+	  //used for system clock
 	    //Initialize Buttons
 	int PB1, PB2;
 	PBSwInit();
@@ -38,7 +44,7 @@ main(void)
 	    int cpuX;
 	    int cpuY;
 	    int playerX;
-	    int player Y;
+	    int playerY;
 	    //Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
 	    int cpuDir;
 	    int playerDir;
