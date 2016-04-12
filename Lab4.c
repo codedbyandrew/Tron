@@ -20,25 +20,48 @@
 int
 main(void)
 {	
-	//This is a "container" for the value of the switches
-	int switchValues;
+	//Section to initialize switches and displays
+	    //Initialize display
+	    //Initialize Buttons
 
-	// We must get the devices on the BB12 ready to use.
-	// The two lines below get our DIP Switches and LED Bar ready to go.
-	DIPSWInit();
-	LEDBARInit();
+	//Define variables
+	    //2D array 128 by 96
+	    //x,y coords of CPU and Player
+	    //Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
 
 
-  	while(1)
+    //Display title screen
+
+  	while(button not pressed)
     {
-		//Get the values from the switches
-		switchValues = read_Switches();
-		//Put them out on the LEDBAR
-		LEDBAROutput(switchValues);
-		
-			
-
+            //read for button press
     }
+
+    //Display instructions
+
+    while(button not pressed)
+    {
+         //read for button press
+    }
+
+    //Reset variables to initial state
+
+    while(time is not .1sec){
+        //read buttons to update player direction
+        //generate random direction for CPU
+    }
+
+    //Update Coordinates in array and variables
+    //Check for collisions
+        //No collisions: display the array to the screen
+        //Collision: Determine who collided and display win/lose screen
+                //Go back to instruction screen
+
+
+
+
+
+
 }   
 
 
