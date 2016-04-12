@@ -17,6 +17,8 @@
 // Main Program:
 //
 //*****************************************************************************
+void	PBSwInit(void);	
+
 int
 main(void)
 {
@@ -24,12 +26,14 @@ main(void)
 /* Initialization Functions */
 	//Section to initialize switches and displays
 	    //Initialize display
+	void 	sysTickInit(void);  //used for system clock
 	    //Initialize Buttons
-
-	    void 	sysTickInit(void);  //used for system clock
-
+	int PB1, PB2;
+	PBSwInit();
+	
 	//Define variables
 	    //2D array 128 by 96
+	int grid[128][96];
 	    //x,y coords of CPU and Player
 	    int cpuX;
 	    int cpuY;
