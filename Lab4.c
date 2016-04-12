@@ -1,12 +1,12 @@
 //*****************************************************************************
-// TITLE:			LAB 4
+// TITLE:			Tron
 // 
-// NAME:		    <Your Name Here>
-// LAB SECTION:		<301, 302, 303, or 304>
-// LAB DAY:			<Lab Day>
+// NAME:		    Andrew Lundholm, Jiayu Wang
+// LAB SECTION:		303
+// LAB DAY:			Tuesday Afternoon
 //
 // CLASS:			ECE 210
-// DATE: 			FALL 2012
+// DATE: 			Spring 2016
 // 
 // DESCRIPTION:		<Insert a short description of what you are working on in 
 //                   in this lab>
