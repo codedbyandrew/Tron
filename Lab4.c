@@ -19,10 +19,14 @@
 //*****************************************************************************
 int
 main(void)
-{	
+{
+
+/* Initialization Functions */
 	//Section to initialize switches and displays
 	    //Initialize display
 	    //Initialize Buttons
+
+	    void 	sysTickInit(void);  //used for system clock
 
 	//Define variables
 	    //2D array 128 by 96
