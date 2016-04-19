@@ -22,7 +22,6 @@ void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
 void  RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void);
-void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 
 int 	read_PBSwitchNum(int SwitchNumber);
 void    sysTickWait1mS(int waitTime);
@@ -37,7 +36,13 @@ main(void)
 	  //used for system clock
 	    //Initialize Buttons
 	int PB1, PB2;
+	LEDBARInit();
+	DIPSWInit();
 	PBSwInit();
+	RGB_LEDInit();
+	sysTickInit();
+	potentiometersInit();
+	RIT128x96x4Init(1000000);
 
 	//Define variables
 	    //2D array 240 by 96
