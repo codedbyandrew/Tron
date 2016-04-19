@@ -7,7 +7,7 @@
 //
 // CLASS:			ECE 210
 // DATE: 			Spring 2016
-//
+// DUE:       May 3rd
 // DESCRIPTION:		Tron Light Cycle Game
 //*****************************************************************************
 
@@ -53,7 +53,13 @@ main(void)
 	  //used for system clock
 	    //Initialize Buttons
 	int PB1, PB2;
+	LEDBARInit();
+	DIPSWInit();
 	PBSwInit();
+	RGB_LEDInit();
+	sysTickInit();
+	potentiometersInit();
+	RIT128x96x4Init(1000000);
 
 
 
