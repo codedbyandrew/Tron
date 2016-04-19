@@ -49,6 +49,7 @@ main(void)
 	    //Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
 	    int cpuDir;
 	    int playerDir;
+			long x;
 
 
     //Display title screen
@@ -88,10 +89,13 @@ main(void)
     while(!progress){
 				sysTickWait1mS(100);
         //read buttons to update player direction
+				//rotate counter-clockwise
 				playerDir = (playerDir - read_PBSwitchNum(1))%4;
+				//rotate clockwise
 				playerDir = (playerDir + read_PBSwitchNum(3))%4;
 
         //generate random direction for CPU
+				//x = random();
 
     //}
 
