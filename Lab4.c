@@ -22,9 +22,26 @@ void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
 void  RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void);
+void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 
 int 	read_PBSwitchNum(int SwitchNumber);
 void    sysTickWait1mS(int waitTime);
+
+
+	//Define variables
+	    //2D array 240 by 96
+int grid[240][96];
+	//x,y coords of CPU and Player
+int cpuX;
+int cpuY;
+int playerX;
+int playerY;
+	//Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
+int cpuDir;
+int playerDir;
+long x;
+  //Display title screen
+int progress = 0;
 
 int
 main(void)
@@ -38,23 +55,7 @@ main(void)
 	int PB1, PB2;
 	PBSwInit();
 
-	//Define variables
-	    //2D array 240 by 96
-	int grid[240][96];
-	    //x,y coords of CPU and Player
-	    int cpuX;
-	    int cpuY;
-	    int playerX;
-	    int playerY;
-	    //Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
-	    int cpuDir;
-	    int playerDir;
-			long x;
 
-
-    //Display title screen
-
-		int progress = 0;
 
   	while(!progress)
     {
