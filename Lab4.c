@@ -16,15 +16,33 @@
 // Main Program:
 //
 //*****************************************************************************
-void	PBSwInit(void);
-void 	sysTickInit(void);
-void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
-void  RIT128x96x4Init(int freq);
-void  RIT128x96x4Clear(void);
-
+void 	DIPSWInit(void);
+void	PBSwInit(void);
+void 	RGB_LEDInit(void);
+void 	sysTickInit(void);
+int rand(void);
+/* Inputs, outputs, and wait timers */
 int 	read_PBSwitchNum(int SwitchNumber);
+int		read_Switches(void);
+void    LEDBAROutput(int value);
+void 	turnOn(char color);
+void 	turnOff(char color);
+void  potentiometersInit(void);
+int   readPotentiometer0(void);
+int   readPotentiometer1(void);
+int   readPotentiometer2(void);
+void    LEDBAROutput(int number);
+void    LEDBAR_TurnOn(int number);
+void    LEDBAR_TurnOff(int number);
+int   read_SwitchNum(int SwitchNum);
+int   read_Switches();
 void    sysTickWait1mS(int waitTime);
+void	RIT128x96x4Init(int freq);
+void    RIT128x96x4Clear(void);
+void    RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
+char* 	convert(int baudotCode);
+void	LEDBARInit(void);
 
 int
 main(void)
