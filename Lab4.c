@@ -78,6 +78,10 @@ main(void)
 	potentiometersInit();
 	RIT128x96x4Init(1000000);
 
+RGB_LEDInit();
+potentiometersInit();
+RIT128x96x4Clear();
+
 
 
   	while(!progress)
