@@ -53,21 +53,23 @@ main(void)
 
     //Display title screen
 
-		int start = 0;
+		int progress = 0;
 
-  	while(!start)
+  	while(!progress)
     {
-						start = start || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-            RIT128x96x4StringDraw(“Tron”, 108, 40, 15);
+						//start on any button press
+						progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
+            RIT128x96x4StringDraw("Tron", 108, 40, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 240 by 96
     }
+		progress = 0;
 
     //Display instructions
-
-    while(button not pressed)
+    while(!progress)
     {
-         //read for button press
+			progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
+			RIT128x96x4StringDraw("Navigate your lightcycle and avoid touching the paths." + " First player to be trapped by a trail will be derezzed (lose).", 0, 0, 15);
     }
 
     //Reset variables to initial state
@@ -83,10 +85,5 @@ main(void)
         //No collisions: display the array to the screen
         //Collision: Determine who collided and display win/lose screen
                 //Go back to instruction screen
-
-
-
-
-
 
 }
