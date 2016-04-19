@@ -84,10 +84,10 @@ main(void)
 
 
 		sysTickWait1mS(100);
-    while(time is not .1sec){
+    //while(time is not .1sec){
         //read buttons to update player direction
         //generate random direction for CPU
-    }
+    //}
 
     //Update Coordinates in array and variables
     //Check for collisions
