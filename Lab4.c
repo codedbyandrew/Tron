@@ -1,15 +1,14 @@
 //*****************************************************************************
 // TITLE:			Tron
-// 
+//
 // NAME:		    Andrew Lundholm, Jiayu Wang
 // LAB SECTION:		303
 // LAB DAY:			Tuesday Afternoon
 //
 // CLASS:			ECE 210
 // DATE: 			Spring 2016
-// 
-// DESCRIPTION:		<Insert a short description of what you are working on in 
-//                   in this lab>
+//
+// DESCRIPTION:		Tron Light Cycle Game
 //*****************************************************************************
 
 //*****************************************************************************
@@ -17,10 +16,12 @@
 // Main Program:
 //
 //*****************************************************************************
-void	PBSwInit(void);	
+void	PBSwInit(void);
 void 	sysTickInit(void);
 void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
+RIT128x96x4Init(1000000);
+RIT128x96x4Clear();
 
 int 	read_PBSwitchNum(int SwitchNumber);
 void    sysTickWait1mS(int waitTime);
@@ -36,7 +37,7 @@ main(void)
 	    //Initialize Buttons
 	int PB1, PB2;
 	PBSwInit();
-	
+
 	//Define variables
 	    //2D array 128 by 96
 	int grid[128][96];
@@ -52,9 +53,14 @@ main(void)
 
     //Display title screen
 
-  	while(button not pressed)
+		int start = 0;
+
+  	while(!start)
     {
-            //read for button press
+						start = start || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
+            RIT128x96x4StringDraw(“Tron”, 50, 60, 15);
+						//char is 6 wide by 8 tall
+						//res 240 by 96
     }
 
     //Display instructions
@@ -66,6 +72,7 @@ main(void)
 
     //Reset variables to initial state
 
+		sysTickWait1mS(100);
     while(time is not .1sec){
         //read buttons to update player direction
         //generate random direction for CPU
@@ -82,6 +89,4 @@ main(void)
 
 
 
-}   
-
-
+}
