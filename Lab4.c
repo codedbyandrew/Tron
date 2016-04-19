@@ -79,6 +79,9 @@ main(void)
 		cpuY = 48;
 		playerX = 239;
 		playerY = 48;
+		cpuDir = 2;
+		playerDir = 0;
+
 
 		sysTickWait1mS(100);
     while(time is not .1sec){
