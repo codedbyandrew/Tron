@@ -83,8 +83,10 @@ main(void)
 		playerDir = 0;
 
 
-		sysTickWait1mS(100);
-    //while(time is not .1sec){
+
+
+    while(!progress){
+				sysTickWait1mS(100);
         //read buttons to update player direction
         //generate random direction for CPU
     //}
