@@ -28,7 +28,7 @@ int		read_Switches(void);
 void    LEDBAROutput(int value);
 void 	turnOn(char color);
 void 	turnOff(char color);
-void  potentiometersInit(void);
+//void  potentiometersInit(void);
 int   readPotentiometer0(void);
 int   readPotentiometer1(void);
 int   readPotentiometer2(void);
@@ -36,12 +36,10 @@ void    LEDBAROutput(int number);
 void    LEDBAR_TurnOn(int number);
 void    LEDBAR_TurnOff(int number);
 int   read_SwitchNum(int SwitchNum);
-int   read_Switches();
 void    sysTickWait1mS(int waitTime);
 void	RIT128x96x4Init(int freq);
 void    RIT128x96x4Clear(void);
-void    RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
-char* 	convert(int baudotCode);
+void    RIT128x96x4StringDraw(char *text, int xx, int yy, int intensity);
 void	LEDBARInit(void);
 
 
@@ -69,13 +67,13 @@ main(void)
 	    //Initialize display
 	  //used for system clock
 	    //Initialize Buttons
-	int PB1, PB2;
+
 	LEDBARInit();
 	DIPSWInit();
 	PBSwInit();
 	RGB_LEDInit();
 	sysTickInit();
-	potentiometersInit();
+//	potentiometersInit();
 	RIT128x96x4Init(1000000);
 
 
