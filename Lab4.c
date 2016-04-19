@@ -104,5 +104,5 @@ main(void)
         //No collisions: display the array to the screen
         //Collision: Determine who collided and display win/lose screen
                 //Go back to instruction screen
-
+	 }
 }
