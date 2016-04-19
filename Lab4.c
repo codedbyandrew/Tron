@@ -16,40 +16,36 @@
 // Main Program:
 //
 //*****************************************************************************
+/* Initialization Functions */
 void	LEDBARInit(void);
 void 	DIPSWInit(void);
-void	PBSwInit(void);
+void	PBSwInit(void);	
 void 	RGB_LEDInit(void);
 void 	sysTickInit(void);
-int rand(void);
-/* Inputs, outputs, and wait timers */
+/* Inputs, outputs, and wait timers */			
 int 	read_PBSwitchNum(int SwitchNumber);
 int		read_Switches(void);
-void    LEDBAROutput(int value);
+void  LEDBAROutput(int value);
 void 	turnOn(char color);
 void 	turnOff(char color);
-//void  potentiometersInit(void);
+void  potentiometersInit(void);
 int   readPotentiometer0(void);
 int   readPotentiometer1(void);
 int   readPotentiometer2(void);
-void    LEDBAROutput(int number);
-void    LEDBAR_TurnOn(int number);
-void    LEDBAR_TurnOff(int number);
-int   read_SwitchNum(int SwitchNum);
-
-int   read_Switches(void);
-
-void    sysTickWait1mS(int waitTime);
+void  sysTickWait1mS(int waitTime);
 void	RIT128x96x4Init(int freq);
-void    RIT128x96x4Clear(void);
-void    RIT128x96x4StringDraw(char *text, int xx, int yy, int intensity);
-void	LEDBARInit(void);
-
-
+void  RIT128x96x4Clear(void); 
+void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
+char* convert(int baudotCode);
+//*****************************************************************************
+//
+// Main Program:
+//
+//*****************************************************************************
 
 	//Define variables
-	//2D array 240 by 96
-int grid[240][96];
+	//2D array 128 by 96
+int grid[128][96];
 	//x,y coords of CPU and Player
 int cpuX;
 int cpuY;
@@ -89,7 +85,7 @@ RIT128x96x4Clear();
     {
 						//start on any button press
 						progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-            RIT128x96x4StringDraw("Tron", 108, 40, 15);
+            RIT128x96x4StringDraw("Tron", 100, 40, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 240 by 96
     }
