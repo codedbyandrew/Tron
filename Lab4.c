@@ -88,7 +88,11 @@ main(void)
     while(!progress){
 				sysTickWait1mS(100);
         //read buttons to update player direction
+				playerDir = (playerDir - read_PBSwitchNum(1))%4;
+				playerDir = (playerDir + read_PBSwitchNum(3))%4;
+
         //generate random direction for CPU
+
     //}
 
     //Update Coordinates in array and variables
