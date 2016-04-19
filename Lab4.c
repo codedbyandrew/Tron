@@ -7,7 +7,7 @@
 //
 // CLASS:			ECE 210
 // DATE: 			Spring 2016
-//
+// DUE:       May 3rd
 // DESCRIPTION:		Tron Light Cycle Game
 //*****************************************************************************
 
@@ -22,6 +22,7 @@ void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
 void  RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void);
+void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 
 int 	read_PBSwitchNum(int SwitchNumber);
 void    sysTickWait1mS(int waitTime);
