@@ -20,8 +20,8 @@ void	PBSwInit(void);
 void 	sysTickInit(void);
 void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
-RIT128x96x4Init(1000000);
-RIT128x96x4Clear();
+void  RIT128x96x4Init(int freq);
+void  RIT128x96x4Clear(void);
 
 int 	read_PBSwitchNum(int SwitchNumber);
 void    sysTickWait1mS(int waitTime);
