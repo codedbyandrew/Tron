@@ -70,7 +70,7 @@ main(void)
     while(!progress)
     {
 			progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-			RIT128x96x4StringDraw("Navigate your lightcycle and avoid touching the paths." + " First player to be trapped by a trail will be derezzed (lose).", 0, 0, 15);
+			RIT128x96x4StringDraw("Navigate your lightcycle and avoid touching the paths. First player to be trapped by a trail will be derezzed (lose).", 0, 0, 15);
     }
 		progress = 0;
 
