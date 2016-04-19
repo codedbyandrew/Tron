@@ -16,8 +16,7 @@
 // Main Program:
 //
 //*****************************************************************************
-
-void	PBSwInit(void);	
+void	PBSwInit(void);
 void 	sysTickInit(void);
 void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
@@ -40,8 +39,8 @@ main(void)
 	PBSwInit();
 
 	//Define variables
-	    //2D array 128 by 96
-	int grid[128][96];
+	    //2D array 240 by 96
+	int grid[240][96];
 	    //x,y coords of CPU and Player
 	    int cpuX;
 	    int cpuY;
@@ -76,6 +75,10 @@ main(void)
 
 
     //Reset variables to initial state
+		cpuX = 0;
+		cpuY = 48;
+		playerX = 239;
+		playerY = 48;
 
 		sysTickWait1mS(100);
     while(time is not .1sec){
