@@ -29,7 +29,7 @@ void    sysTickWait1mS(int waitTime);
 
 
 	//Define variables
-	    //2D array 240 by 96
+	//2D array 240 by 96
 int grid[240][96];
 	//x,y coords of CPU and Player
 int cpuX;
