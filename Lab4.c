@@ -58,8 +58,8 @@ main(void)
   	while(!start)
     {
 						start = start || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-            RIT128x96x4StringDraw(“Tron”, 50, 60, 15);
-						//char is 6 wide by 8 tall
+            RIT128x96x4StringDraw(“Tron”, 108, 40, 15);
+						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 240 by 96
     }
 
