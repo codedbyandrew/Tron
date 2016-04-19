@@ -16,7 +16,8 @@
 // Main Program:
 //
 //*****************************************************************************
-void	PBSwInit(void);
+
+void	PBSwInit(void);	
 void 	sysTickInit(void);
 void 	RGB_LEDInit(void);
 void	LEDBARInit(void);
