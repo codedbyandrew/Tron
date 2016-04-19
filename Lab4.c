@@ -36,13 +36,14 @@ void    LEDBAROutput(int number);
 void    LEDBAR_TurnOn(int number);
 void    LEDBAR_TurnOff(int number);
 int   read_SwitchNum(int SwitchNum);
-int   read_Switches();
+int   read_Switches(void);
 void    sysTickWait1mS(int waitTime);
 void	RIT128x96x4Init(int freq);
 void    RIT128x96x4Clear(void);
 void    RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 char* 	convert(int baudotCode);
 void	LEDBARInit(void);
+time_t time(time_t *);
 
 
 	//Define variables
@@ -69,7 +70,6 @@ main(void)
 	    //Initialize display
 	  //used for system clock
 	    //Initialize Buttons
-	int PB1, PB2;
 	LEDBARInit();
 	DIPSWInit();
 	PBSwInit();
