@@ -44,6 +44,22 @@ void    RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity)
 char* 	convert(int baudotCode);
 void	LEDBARInit(void);
 
+
+	//Define variables
+	//2D array 240 by 96
+int grid[240][96];
+	//x,y coords of CPU and Player
+int cpuX;
+int cpuY;
+int playerX;
+int playerY;
+	//Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
+int cpuDir;
+int playerDir;
+long x;
+  //Display title screen
+int progress = 0;
+
 int
 main(void)
 {
@@ -62,23 +78,7 @@ main(void)
 	potentiometersInit();
 	RIT128x96x4Init(1000000);
 
-	//Define variables
-	    //2D array 240 by 96
-	int grid[240][96];
-	    //x,y coords of CPU and Player
-	    int cpuX;
-	    int cpuY;
-	    int playerX;
-	    int playerY;
-	    //Current direction for both cpu and user (0-left, 1 -up, 2-right, 3 - down)
-	    int cpuDir;
-	    int playerDir;
-			long x;
 
-
-    //Display title screen
-
-		int progress = 0;
 
   	while(!progress)
     {
