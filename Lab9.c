@@ -135,11 +135,11 @@ cpuX+=2;
 playerDir = updatePlayerDir(playerDir);
 
 if(playerDir == 0){
-    playerX-=2;
+    playerX-=1;
 }else if(playerDir == 1){
     playerY-=1;
 }else if(playerDir == 2){
-    playerX+=2;
+    playerX+=1;
 }else{
     playerY+=1;
 }
