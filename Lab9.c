@@ -91,6 +91,7 @@ RIT128x96x4Clear();
 			RIT128x96x4StringDraw("trapped by a trail", 0, 32, 15);
 			RIT128x96x4StringDraw("will be derezzed-lose", 0, 40, 15);
 waitForButtonPress();
+RIT128x96x4Clear();
 
     //Reset variables to initial state
 		cpuX = 0;
