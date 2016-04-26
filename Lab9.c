@@ -74,8 +74,9 @@ potentiometersInit();
 RIT128x96x4Clear();
 
 
+progress = read_PBSwitchNum(1);
 
-  	while(progress != 0x1)
+  	while(progress != 0x0)
     {
 			//start on any button press
 		    progress = read_PBSwitchNum(1);
