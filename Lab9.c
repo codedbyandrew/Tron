@@ -30,8 +30,13 @@ void  sysTickWait1mS(int waitTime);
 void	RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void); 
 void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
+void RIT128x96x4ImageDraw(const char* image, int x, int y, int width, int len);
 char* convert(int baudotCode);
 void waitForButtonPress(void);
+
+
+const unsigned char DOT[96] ={255};
+
 
 //*****************************************************************************
 //
@@ -105,8 +110,13 @@ RIT128x96x4Clear();
 
 
 
+RIT128x96x4ImageDraw(DOT, 10, 10, 1, 1);
+
     while(!progress){
 				sysTickWait1mS(100);
+
+
+
         //read buttons to update player direction
 				//rotate counter-clockwise
 				playerDir = (playerDir - read_PBSwitchNum(1))%4;
