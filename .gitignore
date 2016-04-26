@@ -3,6 +3,30 @@
 *.ko
 *.obj
 *.elf
+*.cmd
+*.icf
+*.ld
+*.sct
+*.sgxx
+*.xml
+*.ini
+*.lib
+*.dep
+*.bak
+*.CCS
+*.Joe
+*.William
+*.uvopt
+*.uvoptx
+*.saved_uv4
+*.uvprojx
+LICENSE
+Makefile
+/RTE
+rvmdk
+sourcerygxx
+startup_rvmdk.S
+
 
 # Precompiled Headers
 *.gch
