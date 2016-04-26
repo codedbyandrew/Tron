@@ -75,9 +75,9 @@ RIT128x96x4Clear();
 
 
 
-  	while(progress != 0x0)
+  	while(progress != 0x1)
     {
-						//start on any button press
+			//start on any button press
 		    progress = read_PBSwitchNum(1);
 
 
