@@ -90,6 +90,7 @@ RIT128x96x4Clear();
 			RIT128x96x4StringDraw("First player to be", 0, 24, 15);
 			RIT128x96x4StringDraw("trapped by a trail", 0, 32, 15);
 			RIT128x96x4StringDraw("will be derezzed-lose", 0, 40, 15);
+			sysTickWait1mS(500);
 waitForButtonPress();
 RIT128x96x4Clear();
 
