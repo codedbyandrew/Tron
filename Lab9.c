@@ -109,11 +109,11 @@ RIT128x96x4Clear();
 
 
 
-RIT128x96x4StringDraw("CPU", 40, 0, 15);
-RIT128x96x4ImageDraw(DOT, 48, 20, 2, 1);
+RIT128x96x4StringDraw("CPU", 0, 40, 15);
+RIT128x96x4ImageDraw(DOT, 20, 48, 2, 1);
 
-RIT128x96x4StringDraw("YOU", 40, 108, 15);
-RIT128x96x4ImageDraw(DOT, 48, 104, 2, 1);
+RIT128x96x4StringDraw("YOU", 108,  40, 15);
+RIT128x96x4ImageDraw(DOT, 104, 48, 2, 1);
 
 RIT128x96x4StringDraw("3", 61, 44, 15);
 sysTickWait1mS(1000);
@@ -122,6 +122,8 @@ sysTickWait1mS(1000);
 RIT128x96x4StringDraw("1", 61, 44, 15);
 sysTickWait1mS(1000);
 RIT128x96x4StringDraw(" ", 61, 44, 15);
+RIT128x96x4StringDraw("   ", 108,  40, 15);
+RIT128x96x4StringDraw("   ", 0, 40, 15);
 
     while(!progress){
 				sysTickWait1mS(100);
