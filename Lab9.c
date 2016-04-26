@@ -100,9 +100,9 @@ waitForButtonPress();
 RIT128x96x4Clear();
 
     //Reset variables to initial state
-		cpuX = 0;
+		cpuX = 20;
 		cpuY = 48;
-		playerX = 239;
+		playerX = 106;
 		playerY = 48;
 		cpuDir = 2;
 		playerDir = 0;
@@ -110,10 +110,10 @@ RIT128x96x4Clear();
 
 
 RIT128x96x4StringDraw("CPU", 0, 40, 15);
-RIT128x96x4ImageDraw(DOT, 20, 48, 2, 1);
+RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
 
 RIT128x96x4StringDraw("YOU", 108,  40, 15);
-RIT128x96x4ImageDraw(DOT, 104, 48, 2, 1);
+RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
 
 RIT128x96x4StringDraw("3", 61, 44, 15);
 sysTickWait1mS(1000);
@@ -125,10 +125,12 @@ RIT128x96x4StringDraw(" ", 61, 44, 15);
 RIT128x96x4StringDraw("   ", 108,  40, 15);
 RIT128x96x4StringDraw("   ", 0, 40, 15);
 
-    while(!progress){
+    while(1){
 				sysTickWait1mS(100);
-
-
+RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
+RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
+cpuX++;
+playerX--;
 
         //read buttons to update player direction
 				//rotate counter-clockwise
