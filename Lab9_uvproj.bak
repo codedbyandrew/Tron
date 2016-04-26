@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\rvmdk\</OutputDirectory>
-          <OutputName>Lab 4</OutputName>
+          <OutputName>Blinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -160,10 +160,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4098</DriverSelection>
+            <DriverSelection>4099</DriverSelection>
           </Flash1>
           <Flash2>BIN\lmidk-agdi.dll</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
         </Utilities>
         <TargetArmAds>
@@ -392,27 +392,24 @@
               <FilePath>.\startup_rvmdk.S</FilePath>
             </File>
             <File>
-              <FileName>Lab4.c</FileName>
+              <FileName>Lab9.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Lab4.c</FilePath>
+              <FilePath>.\Lab9.c</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>Documentation</GroupName>
         </Group>
         <Group>
           <GroupName>Libraries</GroupName>
           <Files>
             <File>
-              <FileName>ECE210.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>.\ECE210.lib</FilePath>
-            </File>
-            <File>
               <FileName>driverlib-cm3.lib</FileName>
               <FileType>4</FileType>
               <FilePath>.\driverlib-cm3.lib</FilePath>
+            </File>
+            <File>
+              <FileName>ECE210.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\ECE210.lib</FilePath>
             </File>
           </Files>
         </Group>

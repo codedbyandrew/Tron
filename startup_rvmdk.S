@@ -3,7 +3,7 @@
 ;
 ; startup_rvmdk.S - Startup code for use with Keil's uVision.
 ;
-; Copyright (c) 2007-2012 Texas Instruments Incorporated.  All rights reserved.
+; Copyright (c) 2005-2011 Texas Instruments Incorporated.  All rights reserved.
 ; Software License Agreement
 ; 
 ; Texas Instruments (TI) is supplying this software for use solely and
@@ -19,7 +19,7 @@
 ; CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
 ; DAMAGES, FOR ANY REASON WHATSOEVER.
 ; 
-; This is part of revision 9107 of the EK-LM3S1968 Firmware Package.
+; This is part of revision 8264 of the EK-LM3S1968 Firmware Package.
 ;
 ;******************************************************************************
 
@@ -28,14 +28,14 @@
 ; <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ;
 ;******************************************************************************
-Stack   EQU     0x00000100
+Stack   EQU     0x00001000
 
 ;******************************************************************************
 ;
 ; <o> Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ;
 ;******************************************************************************
-Heap    EQU     0x00000000
+Heap    EQU     0x00001000
 
 ;******************************************************************************
 ;
@@ -72,11 +72,15 @@ __heap_limit
 ;******************************************************************************
         AREA    RESET, CODE, READONLY
         THUMB
+
 ;******************************************************************************
 ;
-; External declarations for the interrupt handlers used by the application.
+; External declaration for the interrupt handler used by the application.
 ;
 ;******************************************************************************
+        EXTERN  UART2IntHandler
+		EXTERN  Timer0IntHandler
+
 ;******************************************************************************
 ;
 ; The vector table.
@@ -84,66 +88,66 @@ __heap_limit
 ;******************************************************************************
         EXPORT  __Vectors
 __Vectors
-        DCD     StackMem + Stack            ; Top of Stack
-        DCD     Reset_Handler               ; Reset Handler
-        DCD     NmiSR                       ; NMI Handler
-        DCD     FaultISR                    ; Hard Fault Handler
-        DCD     IntDefaultHandler           ; The MPU fault handler
-        DCD     IntDefaultHandler           ; The bus fault handler
-        DCD     IntDefaultHandler           ; The usage fault handler
-        DCD     0                           ; Reserved
-        DCD     0                           ; Reserved
-        DCD     0                           ; Reserved
-        DCD     0                           ; Reserved
-        DCD     IntDefaultHandler           ; SVCall handler
-        DCD     IntDefaultHandler           ; Debug monitor handler
-        DCD     0                           ; Reserved
-        DCD     IntDefaultHandler           ; The PendSV handler
-        DCD     IntDefaultHandler           ; The SysTick handler
-        DCD     IntDefaultHandler           ; GPIO Port A
-        DCD     IntDefaultHandler           ; GPIO Port B
-        DCD     IntDefaultHandler           ; GPIO Port C
-        DCD     IntDefaultHandler           ; GPIO Port D
-        DCD     IntDefaultHandler           ; GPIO Port E
-        DCD     IntDefaultHandler           ; UART0 Rx and Tx
-        DCD     IntDefaultHandler           ; UART1 Rx and Tx
-        DCD     IntDefaultHandler           ; SSI0 Rx and Tx
-        DCD     IntDefaultHandler           ; I2C0 Master and Slave
-        DCD     IntDefaultHandler           ; PWM Fault
-        DCD     IntDefaultHandler           ; PWM Generator 0
-        DCD     IntDefaultHandler           ; PWM Generator 1
-        DCD     IntDefaultHandler           ; PWM Generator 2
-        DCD     IntDefaultHandler           ; Quadrature Encoder 0
-        DCD     IntDefaultHandler           ; ADC Sequence 0
-        DCD     IntDefaultHandler           ; ADC Sequence 1
-        DCD     IntDefaultHandler           ; ADC Sequence 2
-        DCD     IntDefaultHandler           ; ADC Sequence 3
-        DCD     IntDefaultHandler           ; Watchdog timer
-        DCD     IntDefaultHandler           ; Timer 0 subtimer A
-        DCD     IntDefaultHandler           ; Timer 0 subtimer B
-        DCD     IntDefaultHandler           ; Timer 1 subtimer A
-        DCD     IntDefaultHandler           ; Timer 1 subtimer B
-        DCD     IntDefaultHandler           ; Timer 2 subtimer A
-        DCD     IntDefaultHandler           ; Timer 2 subtimer B
-        DCD     IntDefaultHandler           ; Analog Comparator 0
-        DCD     IntDefaultHandler           ; Analog Comparator 1
-        DCD     IntDefaultHandler           ; Analog Comparator 2
-        DCD     IntDefaultHandler           ; System Control (PLL, OSC, BO)
-        DCD     IntDefaultHandler           ; FLASH Control
-        DCD     IntDefaultHandler           ; GPIO Port F
-        DCD     IntDefaultHandler           ; GPIO Port G
-        DCD     IntDefaultHandler           ; GPIO Port H
-        DCD     IntDefaultHandler           ; UART2 Rx and Tx
-        DCD     IntDefaultHandler           ; SSI1 Rx and Tx
-        DCD     IntDefaultHandler           ; Timer 3 subtimer A
-        DCD     IntDefaultHandler           ; Timer 3 subtimer B
-        DCD     IntDefaultHandler           ; I2C1 Master and Slave
-        DCD     IntDefaultHandler           ; Quadrature Encoder 1
-        DCD     IntDefaultHandler           ; CAN0
-        DCD     IntDefaultHandler           ; CAN1
-        DCD     IntDefaultHandler           ; CAN2
-        DCD     IntDefaultHandler           ; Ethernet
-        DCD     IntDefaultHandler           ; Hibernate
+        DCD     StackMem + Stack            ; Top of Stack				0
+        DCD     Reset_Handler               ; Reset Handler				1
+        DCD     NmiSR                       ; NMI Handler				2
+        DCD     FaultISR                    ; Hard Fault Handler		3	
+        DCD     IntDefaultHandler           ; The MPU fault handler		4
+        DCD     IntDefaultHandler           ; The bus fault handler		5
+        DCD     IntDefaultHandler           ; The usage fault handler	6
+        DCD     0                           ; Reserved					7
+        DCD     0                           ; Reserved					8
+        DCD     0                           ; Reserved					9
+        DCD     0                           ; Reserved					10
+        DCD     IntDefaultHandler           ; SVCall handler			11
+        DCD     IntDefaultHandler           ; Debug monitor handler		12
+        DCD     0                           ; Reserved					13
+        DCD     IntDefaultHandler           ; The PendSV handler		14
+        DCD     IntDefaultHandler           ; The SysTick handler		15
+        DCD     IntDefaultHandler           ; GPIO Port A				16
+        DCD     IntDefaultHandler           ; GPIO Port B				17
+        DCD     IntDefaultHandler           ; GPIO Port C				18
+        DCD     IntDefaultHandler           ; GPIO Port D				19
+        DCD     IntDefaultHandler           ; GPIO Port E				20
+        DCD     IntDefaultHandler           ; UART0 Rx and Tx			21
+        DCD     IntDefaultHandler           ; UART1 Rx and Tx			22	
+        DCD     IntDefaultHandler           ; SSI0 Rx and Tx			23		
+        DCD     IntDefaultHandler           ; I2C0 Master and Slave		24
+        DCD     IntDefaultHandler           ; PWM Fault					25
+        DCD     IntDefaultHandler           ; PWM Generator 0			26
+        DCD     IntDefaultHandler           ; PWM Generator 1			27
+        DCD     IntDefaultHandler           ; PWM Generator 2			28
+        DCD     IntDefaultHandler           ; Quadrature Encoder 0		29
+        DCD     IntDefaultHandler           ; ADC Sequence 0			30
+        DCD     IntDefaultHandler           ; ADC Sequence 1			31
+        DCD     IntDefaultHandler           ; ADC Sequence 2			32	
+        DCD     IntDefaultHandler           ; ADC Sequence 3			33
+        DCD     IntDefaultHandler           ; Watchdog timer			34
+        DCD     Timer0IntHandler            ; Timer 0 subtimer A		35
+        DCD     IntDefaultHandler           ; Timer 0 subtimer B		36
+        DCD     IntDefaultHandler           ; Timer 1 subtimer A		37
+        DCD     IntDefaultHandler           ; Timer 1 subtimer B		38
+        DCD     IntDefaultHandler           ; Timer 2 subtimer A		39
+        DCD     IntDefaultHandler           ; Timer 2 subtimer B		40
+        DCD     IntDefaultHandler           ; Analog Comparator 0		41
+        DCD     IntDefaultHandler           ; Analog Comparator 1		42	
+        DCD     IntDefaultHandler           ; Analog Comparator 2		43
+        DCD     IntDefaultHandler           ; System Control (PLL, OSC, BO)	44
+        DCD     IntDefaultHandler           ; FLASH Control				45
+        DCD     IntDefaultHandler           ; GPIO Port F				46
+        DCD     IntDefaultHandler           ; GPIO Port G				47
+        DCD     IntDefaultHandler           ; GPIO Port H				48
+        DCD     UART2IntHandler             ; UART2 Rx and Tx			49
+        DCD     IntDefaultHandler           ; SSI1 Rx and Tx			50
+        DCD     IntDefaultHandler           ; Timer 3 subtimer A		51
+        DCD     IntDefaultHandler           ; Timer 3 subtimer B		52
+        DCD     IntDefaultHandler           ; I2C1 Master and Slave		53
+        DCD     IntDefaultHandler           ; Quadrature Encoder 1		54
+        DCD     IntDefaultHandler           ; CAN0						55
+        DCD     IntDefaultHandler           ; CAN1						56
+        DCD     IntDefaultHandler           ; CAN2						57
+        DCD     IntDefaultHandler           ; Ethernet					58
+        DCD     IntDefaultHandler           ; Hibernate					59
 
 ;******************************************************************************
 ;
@@ -159,7 +163,7 @@ Reset_Handler
         ; .bss section.
         ;
         IMPORT  __main
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          B       __main
+        B       __main
 
 ;******************************************************************************
 ;
@@ -205,6 +209,60 @@ IntDefaultHandler
 ;******************************************************************************
         AREA    |.text|, CODE, READONLY
 
+
+;******************************************************************************
+;
+; Useful functions.
+;
+;******************************************************************************
+        EXPORT  DisableInterrupts
+        EXPORT  EnableInterrupts
+        EXPORT  StartCritical
+        EXPORT  EndCritical
+        EXPORT  WaitForInterrupt
+
+;*********** DisableInterrupts ***************
+; disable interrupts
+; inputs:  none
+; outputs: none
+DisableInterrupts
+        CPSID  I
+        BX     LR
+
+;*********** EnableInterrupts ***************
+; disable interrupts
+; inputs:  none
+; outputs: none
+EnableInterrupts
+        CPSIE  I
+        BX     LR
+
+;*********** StartCritical ************************
+; make a copy of previous I bit, disable interrupts
+; inputs:  none
+; outputs: previous I bit
+StartCritical
+        MRS    R0, PRIMASK  ; save old status
+        CPSID  I            ; mask all (except faults)
+        BX     LR
+
+;*********** EndCritical ************************
+; using the copy of previous I bit, restore I bit to previous value
+; inputs:  previous I bit
+; outputs: none
+EndCritical
+        MSR    PRIMASK, R0
+        BX     LR
+
+;*********** WaitForInterrupt ************************
+; go to low power mode while waiting for the next interrupt
+; inputs:  none
+; outputs: none
+WaitForInterrupt
+        WFI
+        BX     LR
+		
+		
 ;******************************************************************************
 ;
 ; The function expected of the C library startup code for defining the stack

@@ -10,12 +10,6 @@
 // DUE:       May 3rd
 // DESCRIPTION:		Tron Light Cycle Game
 //*****************************************************************************
-
-//*****************************************************************************
-//
-// Main Program:
-//
-//*****************************************************************************
 /* Initialization Functions */
 void	LEDBARInit(void);
 void 	DIPSWInit(void);
@@ -85,7 +79,7 @@ RIT128x96x4Clear();
     {
 						//start on any button press
 						progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-            RIT128x96x4StringDraw("Tron", 100, 40, 15);
+            RIT128x96x4StringDraw("Tron", 100, 64, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 240 by 96
     }
@@ -96,9 +90,12 @@ RIT128x96x4Clear();
     {
 			//40 chars will fill the screen
 			progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-			RIT128x96x4StringDraw("Navigate your lightcycle and avoid", 0, 0, 15);
-			RIT128x96x4StringDraw("touching the paths. First player to be", 0, 8, 15);
-			RIT128x96x4StringDraw("trapped by a trail will be derezzed (lose).", 0, 16, 15);
+			RIT128x96x4StringDraw("Navigate your", 0, 0, 15);
+			RIT128x96x4StringDraw("lightcycle and avoid", 0, 8, 15);
+			RIT128x96x4StringDraw("touching the paths", 0, 16, 15);
+			RIT128x96x4StringDraw("First player to be", 0, 24, 15);
+			RIT128x96x4StringDraw("trapped by a trail", 0, 32, 15);
+			RIT128x96x4StringDraw("will be derezzed-lose", 0, 40, 15);
     }
 		progress = 0;
 
