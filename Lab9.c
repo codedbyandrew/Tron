@@ -76,6 +76,7 @@ potentiometersInit();
 RIT128x96x4Clear();
 
             RIT128x96x4StringDraw("Tron", 52, 44, 15);
+            RIT128x96x4StringDraw("press button to start", 1, 52, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 128 by 96
 						waitForButtonPress();
