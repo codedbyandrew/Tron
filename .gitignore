@@ -47,6 +47,11 @@ cr_project.xml
 desktop.ini
 driverlib-cm3.lib
 startup_rvmdk.S
+/rvmdk
+*.crf
+*.htm
+*.dep
+
 
 # Precompiled Headers
 *.gch
