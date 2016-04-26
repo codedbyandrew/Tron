@@ -31,6 +31,7 @@ void	RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void); 
 void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 char* convert(int baudotCode);
+void waitForButtonPress(void);
 
 //*****************************************************************************
 //
@@ -74,19 +75,10 @@ RGB_LEDInit();
 potentiometersInit();
 RIT128x96x4Clear();
 
-
-progress = read_PBSwitchNum(1);
-
-  	while(progress != 0x0)
-    {
-			//start on any button press
-		    progress = read_PBSwitchNum(1);
-
-
             RIT128x96x4StringDraw("Tron", 52, 44, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
 						//res 128 by 96
-    }
+						waitForButtonPress();
 		progress = 0;
 
     RIT128x96x4Clear();
@@ -135,4 +127,20 @@ progress = read_PBSwitchNum(1);
         //Collision: Determine who collided and display win/lose screen
                 //Go back to instruction screen
 	 }
+}
+
+void waitForButtonPress(){
+int progress1 = read_PBSwitchNum(1);
+int progress2 = read_PBSwitchNum(2);
+int progress3 = read_PBSwitchNum(3);
+
+  	while(progress1 != 0x0 && progress2 != 0x0 progress3 != 0x0)
+    {
+			//start on any button press
+		    progress1 = read_PBSwitchNum(1);
+            progress2 = read_PBSwitchNum(2);
+            progress3 = read_PBSwitchNum(3);
+    }
+
+
 }
