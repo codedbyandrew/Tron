@@ -131,7 +131,6 @@ RIT128x96x4StringDraw("   ", 0, 40, 15);
 RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
 RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
 cpuX+=2;
-playerX+=-2;
 
 playerDir = updatePlayerDir(playerDir);
 
