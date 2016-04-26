@@ -126,22 +126,28 @@ RIT128x96x4StringDraw(" ", 61, 44, 15);
 RIT128x96x4StringDraw("   ", 108,  40, 15);
 RIT128x96x4StringDraw("   ", 0, 40, 15);
 
-    while(1){
+progress = 0;
+    while(progress == 0){
 				sysTickWait1mS(100);
-RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
-RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
+RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 2);
+RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 2);
 cpuX+=2;
 
 playerDir = updatePlayerDir(playerDir);
 
 if(playerDir == 0){
-    playerX-=1;
+    playerX-=2;
 }else if(playerDir == 1){
-    playerY-=1;
+    playerY-=2;
 }else if(playerDir == 2){
-    playerX+=1;
+    playerX+=2;
 }else{
-    playerY+=1;
+    playerY+=2;
+}
+
+if(playerX < 0 || playerX > 128 || playerY > 96 || playerY < 0){
+    progress = 1;
+
 }
 
 
@@ -157,6 +163,16 @@ if(playerDir == 0){
         //Collision: Determine who collided and display win/lose screen
                 //Go back to instruction screen
 	 }
+
+RIT128x96x4Clear();
+	 if(progress == 1){
+
+RIT128x96x4StringDraw("YOU LOSE", 40,  44, 15);
+
+     }else{
+RIT128x96x4StringDraw("YOU WIN", 43,  44, 15);
+
+     }
 }
 
 void waitForButtonPress(){
