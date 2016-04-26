@@ -129,8 +129,10 @@ RIT128x96x4StringDraw("   ", 0, 40, 15);
 				sysTickWait1mS(50);
 RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
 RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
-cpuX++;
-playerX--;
+cpuX+=2;
+playerX+=-2;
+
+
 
         //read buttons to update player direction
 				//rotate counter-clockwise
