@@ -110,7 +110,7 @@ RIT128x96x4Clear();
 
 
 
-RIT128x96x4ImageDraw(DOT, 10, 10, 10, 10);
+RIT128x96x4ImageDraw(DOT, 10, 10, 2, 1);
 
     while(!progress){
 				sysTickWait1mS(100);
