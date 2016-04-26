@@ -30,7 +30,6 @@ void  sysTickWait1mS(int waitTime);
 void	RIT128x96x4Init(int freq);
 void  RIT128x96x4Clear(void); 
 void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
-char* convert(int baudotCode);
 
 //*****************************************************************************
 //
