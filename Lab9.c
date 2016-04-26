@@ -79,9 +79,9 @@ RIT128x96x4Clear();
     {
 						//start on any button press
 						progress = progress || read_PBSwitchNum(1) || read_PBSwitchNum(2) || read_PBSwitchNum(3);
-            RIT128x96x4StringDraw("Tron", 100, 64, 15);
+            RIT128x96x4StringDraw("Tron", 52, 44, 15);
 						//char is 6 wide by 8 tall, Tron = 24w, 8h
-						//res 240 by 96
+						//res 128 by 96
     }
 		progress = 0;
 
