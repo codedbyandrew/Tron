@@ -33,6 +33,7 @@ void  RIT128x96x4StringDraw(const char* letter, int xx, int yy, int intensity);
 void RIT128x96x4ImageDraw(const char* image, int x, int y, int width, int len);
 char* convert(int baudotCode);
 void waitForButtonPress(void);
+int updatePlayerDir(int currDir);
 
 
 const unsigned char DOT[96] = {255};
@@ -46,7 +47,7 @@ const unsigned char DOT[96] = {255};
 
 	//Define variables
 	//2D array 128 by 96
-int grid[128][96];
+int grid[48][96];
 	//x,y coords of CPU and Player
 int cpuX;
 int cpuY;
@@ -132,13 +133,19 @@ RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
 cpuX+=2;
 playerX+=-2;
 
+playerDir = updatePlayerDir(playerDir);
+
+if(playerDir == 0){
+    playerX-=2;
+}else if(playerDir == 1){
+    playerY-=1;
+}else if(playerDir == 2){
+    playerX+=2;
+}else{
+    playerY+=1;
+}
 
 
-        //read buttons to update player direction
-				//rotate counter-clockwise
-				playerDir = (playerDir - read_PBSwitchNum(1))%4;
-				//rotate clockwise
-				playerDir = (playerDir + read_PBSwitchNum(3))%4;
 
         //generate random direction for CPU
 				//x = random();
@@ -165,6 +172,25 @@ int progress3 = read_PBSwitchNum(3);
             progress2 = read_PBSwitchNum(2);
             progress3 = read_PBSwitchNum(3);
     }
+
+
+}
+
+int updatePlayerDir(int currDir){
+    int progress1 = read_PBSwitchNum(1);
+    int progress3 = read_PBSwitchNum(3);
+
+    if((progress1 == 0x0) && (progress3 == 0x0)){
+      //don't do anything
+    }else if((progress1 == 0x0)){
+        currDir = currDir -1;
+        currDir = currDir%4;
+    }else if((progress3 == 0x0)){
+             currDir = currDir +1;
+             currDir = currDir%4;
+    }
+
+    return currDir;
 
 
 }
