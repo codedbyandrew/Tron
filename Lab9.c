@@ -79,9 +79,9 @@ RIT128x96x4Clear();
   	while(progress == 0)
     {
 						//start on any button press
-		    progress = progress || read_PBSwitchNum(1);
-		    progress = progress || read_PBSwitchNum(2);
-		    progress = progress || read_PBSwitchNum(3);
+		    progress = progress + read_PBSwitchNum(1);
+		    progress = progress + read_PBSwitchNum(2);
+		    progress = progress + read_PBSwitchNum(3);
 
 
             RIT128x96x4StringDraw("Tron", 52, 44, 15);
