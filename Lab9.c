@@ -126,7 +126,7 @@ RIT128x96x4StringDraw("   ", 108,  40, 15);
 RIT128x96x4StringDraw("   ", 0, 40, 15);
 
     while(1){
-				sysTickWait1mS(100);
+				sysTickWait1mS(50);
 RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
 RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
 cpuX++;
