@@ -35,7 +35,7 @@ char* convert(int baudotCode);
 void waitForButtonPress(void);
 
 
-const unsigned char DOT[96] ={255};
+const unsigned char DOT[96] = {255};
 
 
 //*****************************************************************************
@@ -110,7 +110,7 @@ RIT128x96x4Clear();
 
 
 
-RIT128x96x4ImageDraw(DOT, 10, 10, 1, 1);
+RIT128x96x4ImageDraw(DOT, 10, 10, 10, 10);
 
     while(!progress){
 				sysTickWait1mS(100);
