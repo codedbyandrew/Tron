@@ -26,7 +26,27 @@ Makefile
 rvmdk
 sourcerygxx
 startup_rvmdk.S
-
+RTE
+rvmdk
+sourcerygxx
+startup_rvmdk.S
+/gcc
+gcc
+APP_BASE
+FLASH
+ECE210.lib
+LICENSE
+*.wxiaodong
+RAM_BASE
+SRAM
+blinky.icf
+blinky.sct
+blinky.sgxx
+blinky_ccs.cmd
+cr_project.xml
+desktop.ini
+driverlib-cm3.lib
+startup_rvmdk.S
 
 # Precompiled Headers
 *.gch
