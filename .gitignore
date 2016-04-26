@@ -48,6 +48,7 @@ startup_rvmdk.S
 *.crf
 *.htm
 *.dep
+rvmdk/
 
 
 
