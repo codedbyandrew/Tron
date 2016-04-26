@@ -134,7 +134,7 @@ int progress1 = read_PBSwitchNum(1);
 int progress2 = read_PBSwitchNum(2);
 int progress3 = read_PBSwitchNum(3);
 
-  	while(progress1 != 0x0 && progress2 != 0x0 progress3 != 0x0)
+  	while((progress1 != 0x0) && (progress2 != 0x0) && (progress3 != 0x0))
     {
 			//start on any button press
 		    progress1 = read_PBSwitchNum(1);
