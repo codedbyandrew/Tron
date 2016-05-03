@@ -84,7 +84,9 @@ main(void)
     potentiometersInit();
     RIT128x96x4Clear();
     
-    RIT128x96x4StringDraw("Tron", 52, 44, 15);
+	
+		while(1){
+			RIT128x96x4StringDraw("Tron", 52, 44, 15);
     RIT128x96x4StringDraw("press button to start", 1, 52, 15);
     //char is 6 wide by 8 tall, Tron = 24w, 8h
     //res 128 by 96
@@ -114,10 +116,10 @@ main(void)
     
     
     RIT128x96x4StringDraw("CPU", 0, 40, 15);
-    RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 1);
+    RIT128x96x4ImageDraw(DOT, cpuX, cpuY, 2, 2);
     
     RIT128x96x4StringDraw("YOU", 108,  40, 15);
-    RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 1);
+    RIT128x96x4ImageDraw(DOT, playerX, playerY, 2, 2);
     
     RIT128x96x4StringDraw("3", 61, 44, 15);
     sysTickWait1mS(1000);
@@ -158,12 +160,16 @@ main(void)
         }
 	}
 
-
+	RIT128x96x4Clear();
 	if(progress == 1){  
     RIT128x96x4StringDraw("YOU LOSE", 40,  44, 15);
 	}else{
     RIT128x96x4StringDraw("YOU WIN", 43,  44, 15);
 	}
+	RIT128x96x4StringDraw("press button to start", 1, 52, 15);
+	waitForButtonPress();
+	}
+    
 }
 
 void waitForButtonPress(){
@@ -188,10 +194,10 @@ int updatePlayerDir(int currDir){
     if(progress1 == 2 || progress1 == 0){
         //don't do anything
     }else if((progress1 == 3)||(progress1 == 1)){
-        currDir = currDir -1;
+        currDir = currDir +1;
         currDir = currDir%4;
     }else if((progress1 == 6)||(progress1 == 4)){
-        currDir = currDir +1;
+        currDir = currDir -1;
         currDir = currDir%4;
     }
     return currDir;
