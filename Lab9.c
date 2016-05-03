@@ -18,6 +18,7 @@ void     RGB_LEDInit(void);
 void     sysTickInit(void);
 /* Inputs, outputs, and wait timers */
 int     read_PBSwitchNum(int SwitchNumber);
+int     read_PBSwitches(void);
 int        read_Switches(void);
 void  LEDBAROutput(int value);
 void     turnOn(char color);
@@ -182,15 +183,14 @@ void waitForButtonPress(){
 }
 
 int updatePlayerDir(int currDir){
-    int progress1 = read_PBSwitchNum(1);
-    int progress3 = read_PBSwitchNum(3);
-    
-    if((progress1 == 0x0) && (progress3 == 0x0)){
+		int progress1 = read_PBSwitches();
+	
+    if(progress1 == 2 || progress1 == 0){
         //don't do anything
-        }else if((progress1 == 0x0)){
+    }else if((progress1 == 3)||(progress1 == 1)){
         currDir = currDir -1;
         currDir = currDir%4;
-        }else if((progress3 == 0x0)){
+    }else if((progress1 == 6)||(progress1 == 4)){
         currDir = currDir +1;
         currDir = currDir%4;
     }
